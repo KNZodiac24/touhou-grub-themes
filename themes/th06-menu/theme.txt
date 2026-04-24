@@ -1,0 +1,139 @@
+title-text: ""
+desktop-image: "background.png"
+
+###### BOOT MENU ######
+
+#### MAIN
++ boot_menu {
+    left = 15%
+    top = 30%
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#AAAAAA"
+    selected_item_color = "#FF2200"
+}
+
+#### TOP-LEFT SHADOW
++ boot_menu {
+    left = 15%-2
+    top = 30%-2
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+}
+
+#### TOP SHADOW
++ boot_menu {
+    left = 15%
+    top = 30%-2
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+}
+
+#### TOP-RIGHT SHADOW
++ boot_menu {
+    left = 15%+2
+    top = 30%-2
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+}
+
+#### RIGHT SHADOW
++ boot_menu {
+    left = 15%+2
+    top = 30%
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+}
+
+#### BOTTOM-RIGHT SHADOW
++ boot_menu {
+    left = 15%+2
+    top = 30%+2
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+}
+
+#### BOTTOM SHADOW
++ boot_menu {
+    left = 15%
+    top = 30%+2
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+}
+
+#### BOTTOM-LEFT SHADOW
++ boot_menu {
+    left = 15%-2
+    top = 30%+2
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+}
+
+#### LEFT SHADOW
++ boot_menu {
+    left = 15%-2
+    top = 30%
+    width = 800
+    height = 600
+    item_padding = 0
+    item_spacing = 10
+    item_icon_space = 0
+    icon_width = 0
+    item_font = "DFPPOPCorn-W12 Bold 28"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+}
