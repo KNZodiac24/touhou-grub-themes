@@ -1,6 +1,8 @@
 title-text: ""
 desktop-image: "background.png"
 
+terminal-font: "Unified Regular 16"
+
 ###### BOOT MENU ######
 
 #### MAIN
