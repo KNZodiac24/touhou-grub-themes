@@ -1,5 +1,5 @@
 title-text: ""
-desktop-image: "background.png"
+desktop-image: "background-16x9.png"
 
 terminal-font: "Unified Regular 16"
 
