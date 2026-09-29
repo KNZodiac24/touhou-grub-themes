@@ -1,11 +1,11 @@
 #!/bin/bash
 
 themes=(
-    "Touhou 6 Menu [4:3] (800x600 | 1024x768 | 1280x960)"
-    "Touhou 6 Menu [4:3 HD] (1440x1080 | 1600x1200)"
-    "Touhou 6 Menu [16:9] (1024x576 | 1280x720)"
-    "Touhou 6 Menu [16:9 HD] (1600x900 | 1920x1080)"
-    "Touhou 6 Menu [16:9 HD-2] (2560x1440)"
+    "Touhou 6 Menu [4:3]"
+    "Touhou 6 Menu [4:3 HD]"
+    "Touhou 6 Menu [16:9]"
+    "Touhou 6 Menu [16:9 HD]"
+    "Touhou 6 Menu [16:9 HD-2]"
 )
 
 themes_names=(
