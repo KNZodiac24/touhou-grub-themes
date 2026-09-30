@@ -53,6 +53,25 @@ sudo bash ./install.sh
 > [!IMPORTANT]
 > Please read the following section before choosing a theme or resolution.
 
-## Notes
+## Notes & tips
 
-- The resolutions presented above DO NOT correspond necessarily to the monitor screen resolution. Essentially, Grub displays according to your machine capabilities. To know what resolutions are allowed on your machine, you can enter `videoinfo` in the Grub console (press `c` to access the console while you are in the Grub menu). A list will be presented with all the admitted resolutions, and the currently setted resolution will have an `*` next to it. Ideally, the setted resolution is the same as your monitor screen; but you may encounter cases where the allowed resolutions -------------
+- The resolutions presented above DO NOT correspond necessarily to the monitor screen resolution. Essentially, Grub displays according to your machine capabilities. To know what resolutions are allowed on your machine, you can enter `videoinfo` in the Grub console (press `c` to access the console while you are in the Grub menu). A list will be presented with all the admitted resolutions, and the currently setted resolution will have an `*` next to it.
+    
+    Ideally, the setted resolution is the same as your monitor screen; but if that's not the case and want to change it, you can modify the `GRUB_GFXMODE` variable within your `/etc/default/grub` file. E.g. `GRUB_GFXMODE=1024x768x32`. Keep in mind that, as stated before, you can set only one of the resolutions indicated by `videoinfo`. In case you set some resolution that's not listed, Grub will set it automatically (from what I've seen, it chooses the lowest one).
+
+> [!IMPORTANT]
+> After making any changes to the `/etc/default/grub` file, you have to update your Grub config to make them work by running `sudo grub-mkconfig -o /boot/grub/grub.cfg`, or `sudo update-grub` on Debian-based distros, or `sudo grub2-mkconfig -o /boot/grub2/grub.cfg` on Red Hat-based distros.
+
+- Anytime you update your Grub config, the console output lists what entries were added to the Grub menu. Something like this:
+
+    <div align="center"><img src="docs/img/grub-config-normal.png"></div> 
+
+    But if you see something like this:
+
+    <div align="center"><img src="docs/img/grub-config-normal.png"></div> 
+
+    You will get your Grub menu polluted with a bunch of entries that aren't even bootable. To fix this, you can add `GRUB_DISABLE_BOOTNEXT=true` to your `/etc/default/grub` file.
+
+    <!-- TODO: verify os_prober variable, grub_terminal variable and uefi advanced settings-->
+
+## Background sources
