@@ -55,9 +55,9 @@ sudo bash ./install.sh
 
 ## Notes & tips
 
-- The resolutions presented above DO NOT correspond necessarily to the monitor screen resolution. Essentially, Grub displays according to your machine capabilities. To know what resolutions are allowed on your machine, you can enter `videoinfo` in the Grub console (press `c` to access the console while you are in the Grub menu). A list will be presented with all the admitted resolutions, and the currently setted resolution will have an `*` next to it.
+- The resolutions presented above DO NOT correspond necessarily to the monitor screen resolution. Essentially, Grub displays according to your machine capabilities. To know what resolutions are allowed on your machine, you can enter `videoinfo` in the Grub console (press `c` to access the console while you are in the Grub menu). A list will be presented with all the admitted resolutions, and the currently set resolution will have an `*` next to it.
     
-    Ideally, the setted resolution is the same as your monitor screen; but if that's not the case and want to change it, you can modify the `GRUB_GFXMODE` variable within your `/etc/default/grub` file. E.g. `GRUB_GFXMODE=1024x768x32`. Keep in mind that, as stated before, you can set only one of the resolutions indicated by `videoinfo`. In case you set some resolution that's not listed, Grub will set it automatically (from what I've seen, it chooses the lowest one).
+    Ideally, the set resolution is the same as your monitor screen; but if that's not the case and want to change it, you can modify the `GRUB_GFXMODE` variable within your `/etc/default/grub` file. E.g. `GRUB_GFXMODE=1024x768x32`. Keep in mind that, as stated before, you can set only one of the resolutions indicated by `videoinfo`. In case you set some resolution that's not listed, Grub will set it automatically (from what I've seen, it chooses the lowest one).
 
 > [!IMPORTANT]
 > After making any changes to the `/etc/default/grub` file, you have to update your Grub config to make them work by running `sudo grub-mkconfig -o /boot/grub/grub.cfg`, or `sudo update-grub` on Debian-based distros, or `sudo grub2-mkconfig -o /boot/grub2/grub.cfg` on Red Hat-based distros.
@@ -74,4 +74,6 @@ sudo bash ./install.sh
 
     <!-- TODO: verify os_prober variable, grub_terminal variable and uefi advanced settings-->
 
-## Background sources
+## Backgrounds sources
+
+- [Touhou 6 Menu](https://www.steamgriddb.com/hero/692)
