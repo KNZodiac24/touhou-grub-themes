@@ -68,12 +68,12 @@ sudo bash ./install.sh
 
     But if you see something like this:
 
-    <div align="center"><img src="docs/img/grub-config-normal.png"></div> 
+    <div align="center"><img src="docs/img/grub-config-polluted.png"></div> 
 
-    You will get your Grub menu polluted with a bunch of entries that aren't even bootable. To fix this, you can add `GRUB_DISABLE_BOOTNEXT=true` to your `/etc/default/grub` file.
+    You will get your Grub menu polluted with a bunch of EFI entries (most of them aren't even bootable). To fix this, you can add `GRUB_DISABLE_BOOTNEXT=true` to your `/etc/default/grub` file.
 
-    <!-- TODO: verify os_prober variable, grub_terminal variable and uefi advanced settings-->
+- If you have a 16:9 aspect ratio monitor but your machine only allows 4:3 aspect ratio resolutions, you can set it without any problem. When booting the menu, maybe it will be displayed keeping the 16:9 aspect ratio of your monitor, and that's ok if you have no problem; but in case you want it to be displayed keeping the 4:3 resolution, you might want to check your monitor configuration. Perhaps there's an image size setting that is defined as "wide" instead of auto/default, causing your monitor to display always with its full resolution.
 
-## Backgrounds sources
+## Images sources
 
 - [Touhou 6 Menu](https://www.steamgriddb.com/hero/692)
