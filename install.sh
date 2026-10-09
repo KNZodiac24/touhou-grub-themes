@@ -37,37 +37,53 @@ echo "Preparing theme assets..."
 
 theme_name=${themes_names[$(expr $op - 1)]}
 
+if [[ $(which grub-mkfont >& /dev/null && echo $?) ]]; then
+    grub_mkfont_exe=grub-mkfont
+elif [[ $(which grub2-mkfont >& /dev/null && echo $?) ]]; then
+    grub_mkfont_exe=grub2-mkfont
+else
+    echo "grub-mkfont or grub2-mkfont utility not found."
+    exit 1
+fi
+
 case $theme_name in
     ${themes_names[0]})
         cd ./themes/th06-menu/4:3/
         cp ../background-4x3.png .
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 24 -o ./DFPPOPCorn-W12_24.pf2
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 26 -o ./DFPPOPCorn-W12_26.pf2 ;;
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 24 -o ./DFPPOPCorn-W12_24.pf2
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 26 -o ./DFPPOPCorn-W12_26.pf2 ;;
     ${themes_names[1]})
         cd ./themes/th06-menu/4:3_HD/
         cp ../background-4x3.png .
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 34 -o ./DFPPOPCorn-W12_34.pf2
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 36 -o ./DFPPOPCorn-W12_36.pf2 ;;
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 34 -o ./DFPPOPCorn-W12_34.pf2
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 36 -o ./DFPPOPCorn-W12_36.pf2 ;;
     ${themes_names[2]})
         cd ./themes/th06-menu/16:9/
         cp ../background-16x9.png .
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 24 -o ./DFPPOPCorn-W12_24.pf2
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 26 -o ./DFPPOPCorn-W12_26.pf2 ;;
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 24 -o ./DFPPOPCorn-W12_24.pf2
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 26 -o ./DFPPOPCorn-W12_26.pf2 ;;
     ${themes_names[3]})
         cd ./themes/th06-menu/16:9_HD/
         cp ../background-16x9.png .
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 36 -o ./DFPPOPCorn-W12_36.pf2
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 38 -o ./DFPPOPCorn-W12_38.pf2 ;;
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 36 -o ./DFPPOPCorn-W12_36.pf2
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 38 -o ./DFPPOPCorn-W12_38.pf2 ;;
     ${themes_names[4]})
         cd ./themes/th06-menu/16:9_HD-2/
         cp ../background-16x9.png .
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 50 -o ./DFPPOPCorn-W12_50.pf2
-        grub-mkfont ../DFPPOPCorn-W12.ttf -b -s 52 -o ./DFPPOPCorn-W12_52.pf2 ;;
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 50 -o ./DFPPOPCorn-W12_50.pf2
+        $grub_mkfont_exe ../DFPPOPCorn-W12.ttf -b -s 52 -o ./DFPPOPCorn-W12_52.pf2 ;;
 esac
 
 theme_source_dir=$(pwd)
 
-cd /boot/grub/themes/
+if [[ -d /boot/grub/themes ]]; then
+    cd /boot/grub/themes/
+elif [[ -d /boot/grub2/themes ]]; then
+    cd /boot/grub2/themes/
+else
+    echo "Grub themes directory not found."
+    exit 1
+fi
 rm -rf $theme_name
 mkdir $theme_name
 cd $theme_name
@@ -90,5 +106,15 @@ fi
 
 echo "Theme installed successfully in $(pwd)"
 
-echo "Updating grub config (/boot/grub/grub.cfg)..."
-grub-mkconfig -o /boot/grub/grub.cfg
+echo "Updating Grub config..."
+
+if [[ $(which grub-mkconfig >& /dev/null && echo $?) ]]; then
+    grub-mkconfig -o /boot/grub/grub.cfg
+elif [[ $(which update-grub >& /dev/null && echo $?) ]]; then
+    update-grub
+elif [[ $(which grub2-mkconfig >& /dev/null && echo $?) ]]; then
+    grub2-mkconfig -o /boot/grub2/grub.cfg
+else
+    echo "grub-mkconfig, grub2-mkconfig or update-grub utility not found."
+    exit 1
+fi
